@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  user-service:
+    build:
+      context: ./user-service
+    networks:
+      - internal
+
+  order-service:
+    build:
+      context: ./order-service
+    networks:
+      - internal
+
+  gateway:
+    build:
+      context: ./gateway
+    ports:
+      - "8080:8000"
+    networks:
+      - internal
+      - external
+    depends_on:
+      - user-service
+      - order-service
+
+networks:
+  internal:
+    internal: true
+  external:
