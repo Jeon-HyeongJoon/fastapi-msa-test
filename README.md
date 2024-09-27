@@ -2,7 +2,12 @@
 
 fastapi를 사용한 msa 구조 서비스
 
-tree
+시작
+```bash
+docker-compose up
+```
+
+구조
 ```bash
 .
 ├── README.md
